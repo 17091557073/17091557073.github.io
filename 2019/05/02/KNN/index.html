@@ -74,24 +74,24 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="L/G's Blog" type="application/atom+xml">
 
 
 
 
 
 
-<meta name="description" content="k-近邻算法（KNN）按照距离最近的K个样本的标签来决定未知样本的标签结果 k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛） 基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响） 没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用">
+<meta name="description" content="按照距离最近的K个样本的标签来决定未知样本的标签结果 k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛） 基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响） 没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用于大数据量（需要存储空">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KNN算法">
+<meta property="og:title" content="k-近邻算法（KNN）">
 <meta property="og:url" content="https://liguan.top/2019/05/02/KNN/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="k-近邻算法（KNN）按照距离最近的K个样本的标签来决定未知样本的标签结果 k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛） 基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响） 没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用">
+<meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
+<meta property="og:description" content="按照距离最近的K个样本的标签来决定未知样本的标签结果 k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛） 基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响） 没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用于大数据量（需要存储空">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-02T01:27:44.743Z">
+<meta property="og:updated_time" content="2019-05-02T01:31:18.253Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KNN算法">
-<meta name="twitter:description" content="k-近邻算法（KNN）按照距离最近的K个样本的标签来决定未知样本的标签结果 k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛） 基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响） 没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用">
+<meta name="twitter:title" content="k-近邻算法（KNN）">
+<meta name="twitter:description" content="按照距离最近的K个样本的标签来决定未知样本的标签结果 k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛） 基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响） 没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用于大数据量（需要存储空">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>KNN算法 | Hexo</title>
+  <title>k-近邻算法（KNN） | L/G's Blog</title>
   
 
 
@@ -157,7 +157,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">L/G's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -237,13 +237,13 @@
     <link itemprop="mainEntityOfPage" href="https://liguan.top/2019/05/02/KNN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="LiGuan">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L/G's Blog">
     </span>
 
     
@@ -251,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">KNN算法</h1>
+          <h1 class="post-title" itemprop="name headline">k-近邻算法（KNN）</h1>
         
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
       
 
       
-        <h1 id="k-近邻算法（KNN）"><a href="#k-近邻算法（KNN）" class="headerlink" title="k-近邻算法（KNN）"></a>k-近邻算法（KNN）</h1><h4 id="按照距离最近的K个样本的标签来决定未知样本的标签结果"><a href="#按照距离最近的K个样本的标签来决定未知样本的标签结果" class="headerlink" title="按照距离最近的K个样本的标签来决定未知样本的标签结果"></a>按照距离最近的K个样本的标签来决定未知样本的标签结果</h4><ol>
+        <h4 id="按照距离最近的K个样本的标签来决定未知样本的标签结果"><a href="#按照距离最近的K个样本的标签来决定未知样本的标签结果" class="headerlink" title="按照距离最近的K个样本的标签来决定未知样本的标签结果"></a>按照距离最近的K个样本的标签来决定未知样本的标签结果</h4><ol>
 <li>k 值的确定：可以通过选择不同的 k 值比较分类效果来确定最佳 k 值（先大范围初筛，再小范围细筛）</li>
 <li>基于距离比较，所以样本各特征之间的取值范围差别较大的时候，应该对特征进行归一化处理，提升分类效果（要消除量纲对特征的影响）</li>
 <li>没有模型的训练过程，每进来一个新样本，会与每个旧样本进行距离的计算，时间及空间复杂度较大，故不适用于大数据量（需要存储空间和计算时间）</li>
@@ -332,8 +332,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/你好，Hexo/" rel="next" title="你好，Hexo">
-                <i class="fa fa-chevron-left"></i> 你好，Hexo
+              <a href="/2019/03/21/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -406,8 +406,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">LiGuan</p>
+              <p class="site-description motion-element" itemprop="description">AI/机器学习/数据挖掘/python</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -417,7 +417,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -461,7 +461,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#k-近邻算法（KNN）"><span class="nav-number">1.</span> <span class="nav-text">k-近邻算法（KNN）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按照距离最近的K个样本的标签来决定未知样本的标签结果"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">按照距离最近的K个样本的标签来决定未知样本的标签结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python代码实现（含约会网站配对和手写数字识别）"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">python代码实现（含约会网站配对和手写数字识别）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块代码调用"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">模块代码调用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#按照距离最近的K个样本的标签来决定未知样本的标签结果"><span class="nav-number">1.</span> <span class="nav-text">按照距离最近的K个样本的标签来决定未知样本的标签结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python代码实现（含约会网站配对和手写数字识别）"><span class="nav-number">2.</span> <span class="nav-text">python代码实现（含约会网站配对和手写数字识别）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块代码调用"><span class="nav-number">3.</span> <span class="nav-text">模块代码调用</span></a></li></ol></div>
             
 
           </div>
@@ -485,7 +485,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">LiGuan</span>
 
   
 </div>
