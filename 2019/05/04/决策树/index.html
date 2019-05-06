@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择">
+<meta name="description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择 step2:以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论） step3:如果已经处理了所有的特征，但类标签还不是唯一的，通常我们会采用多数表决法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树">
 <meta property="og:url" content="https://liguan.top/2019/05/04/决策树/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
-<meta property="og:description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择">
+<meta property="og:description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择 step2:以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论） step3:如果已经处理了所有的特征，但类标签还不是唯一的，通常我们会采用多数表决法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-04T15:07:25.482Z">
+<meta property="og:updated_time" content="2019-05-06T03:05:43.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树">
-<meta name="twitter:description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择">
+<meta name="twitter:description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择 step2:以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论） step3:如果已经处理了所有的特征，但类标签还不是唯一的，通常我们会采用多数表决法">
 
 
 
@@ -301,7 +301,9 @@
       
 
       
-        <h5 id="step1"><a href="#step1" class="headerlink" title="step1:"></a>step1:</h5><p>依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择</p>
+        <h6 id="step1"><a href="#step1" class="headerlink" title="step1:"></a>step1:</h6><p>依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择</p>
+<h6 id="step2"><a href="#step2" class="headerlink" title="step2:"></a>step2:</h6><p>以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论）</p>
+<h6 id="step3"><a href="#step3" class="headerlink" title="step3:"></a>step3:</h6><p>如果已经处理了所有的特征，但类标签还不是唯一的，通常我们会采用多数表决法来确定叶子节点的分类</p>
 
       
     </div>
@@ -467,7 +469,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#step1"><span class="nav-number">1.</span> <span class="nav-text">step1:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#step1"><span class="nav-number">1.</span> <span class="nav-text">step1:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#step2"><span class="nav-number">2.</span> <span class="nav-text">step2:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#step3"><span class="nav-number">3.</span> <span class="nav-text">step3:</span></a></li></ol></div>
             
 
           </div>

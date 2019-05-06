@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liguan.top/"/>
-  <updated>2019-05-04T15:07:25.482Z</updated>
+  <updated>2019-05-06T03:05:43.450Z</updated>
   <id>https://liguan.top/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://liguan.top/2019/05/04/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
     <id>https://liguan.top/2019/05/04/决策树/</id>
     <published>2019-05-04T14:38:00.000Z</published>
-    <updated>2019-05-04T15:07:25.482Z</updated>
+    <updated>2019-05-06T03:05:43.450Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="step1"><a href="#step1" class="headerlink" title="step1:"></a>step1:</h5><p>依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择</p>]]></content>
+    <content type="html"><![CDATA[<h6 id="step1"><a href="#step1" class="headerlink" title="step1:"></a>step1:</h6><p>依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择</p><h6 id="step2"><a href="#step2" class="headerlink" title="step2:"></a>step2:</h6><p>以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论）</p><h6 id="step3"><a href="#step3" class="headerlink" title="step3:"></a>step3:</h6><p>如果已经处理了所有的特征，但类标签还不是唯一的，通常我们会采用多数表决法来确定叶子节点的分类</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h5 id=&quot;step1&quot;&gt;&lt;a href=&quot;#step1&quot; class=&quot;headerlink&quot; title=&quot;step1:&quot;&gt;&lt;/a&gt;step1:&lt;/h5&gt;&lt;p&gt;依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分
+        &lt;h6 id=&quot;step1&quot;&gt;&lt;a href=&quot;#step1&quot; class=&quot;headerlink&quot; title=&quot;step1:&quot;&gt;&lt;/a&gt;step1:&lt;/h6&gt;&lt;p&gt;依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分
       
     
     </summary>
