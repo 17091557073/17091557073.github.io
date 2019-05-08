@@ -81,16 +81,17 @@
 
 
 
-<meta name="description" content="AI/机器学习/数据挖掘/python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="L&#x2F;G&#39;s Blog">
-<meta property="og:url" content="https://liguan.top/archives/2019/index.html">
+<meta name="description" content="条件概率p(c|x)=p(x|c)*p(c)/p(x) 朴素贝叶斯朴素：假设每个特征之间相互独立且同等重要；主要有两种实现方式： 贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的） 多项式模型：考虑词在文档中出现的次数   文档分类先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假">
+<meta property="og:type" content="article">
+<meta property="og:title" content="朴素贝叶斯算法">
+<meta property="og:url" content="https://liguan.top/2019/05/08/朴素贝叶斯算法/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
-<meta property="og:description" content="AI/机器学习/数据挖掘/python">
+<meta property="og:description" content="条件概率p(c|x)=p(x|c)*p(c)/p(x) 朴素贝叶斯朴素：假设每个特征之间相互独立且同等重要；主要有两种实现方式： 贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的） 多项式模型：考虑词在文档中出现的次数   文档分类先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-08T10:11:59.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="L&#x2F;G&#39;s Blog">
-<meta name="twitter:description" content="AI/机器学习/数据挖掘/python">
+<meta name="twitter:title" content="朴素贝叶斯算法">
+<meta name="twitter:description" content="条件概率p(c|x)=p(x|c)*p(c)/p(x) 朴素贝叶斯朴素：假设每个特征之间相互独立且同等重要；主要有两种实现方式： 贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的） 多项式模型：考虑词在文档中出现的次数   文档分类先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://liguan.top/archives/2019/">
+  <link rel="canonical" href="https://liguan.top/2019/05/08/朴素贝叶斯算法/">
 
 
 
 
 
-  <title>归档 | L/G's Blog</title>
+  <title>朴素贝叶斯算法 | L/G's Blog</title>
   
 
 
@@ -145,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,212 +220,149 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liguan.top/2019/05/08/朴素贝叶斯算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/psb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L/G's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">朴素贝叶斯算法</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T16:49:15+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/08/朴素贝叶斯算法/" itemprop="url">
-              
-                <span itemprop="name">朴素贝叶斯算法</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-08T16:49:15+08:00" content="2019-05-08">
-          05-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/04/决策树/" itemprop="url">
-              
-                <span itemprop="name">决策树算法(ID3)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-04T22:38:00+08:00" content="2019-05-04">
-          05-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/03/o2o-1/" itemprop="url">
-              
-                <span itemprop="name">天池o2o优惠券使用预测比赛解析（SGD）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-03T09:47:17+08:00" content="2019-05-03">
-          05-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <ol>
+<li>条件概率<br>p(c|x)=p(x|c)*p(c)/p(x)</li>
+<li>朴素贝叶斯<br>朴素：假设每个特征之间<strong>相互独立</strong>且<strong>同等重要</strong>；主要有两种实现方式：<ul>
+<li>贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的）</li>
+<li>多项式模型：考虑词在文档中出现的次数</li>
+</ul>
+</li>
+<li>文档分类<br>先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假设每个特征需要N个样本，10个特征则需要N^10数据量，如果相互独立，数量可降至N*10）；最后计算每个独立特征的条件概率</li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/02/KNN/" itemprop="url">
-              
-                <span itemprop="name">k-近邻算法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-02T15:33:00+08:00" content="2019-05-02">
-          05-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/01/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-01T14:31:00+08:00" content="2019-05-01">
-          05-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/04/决策树/" rel="next" title="决策树算法(ID3)">
+                <i class="fa fa-chevron-left"></i> 决策树算法(ID3)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -432,6 +370,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -662,6 +604,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

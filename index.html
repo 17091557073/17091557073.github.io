@@ -234,6 +234,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liguan.top/2019/05/08/朴素贝叶斯算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/psb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L/G's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/08/朴素贝叶斯算法/" itemprop="url">朴素贝叶斯算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T16:49:15+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>条件概率<br>p(c|x)=p(x|c)*p(c)/p(x)</li>
+<li>朴素贝叶斯<br>朴素：假设每个特征之间<strong>相互独立</strong>且<strong>同等重要</strong>；主要有两种实现方式：<ul>
+<li>贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的）</li>
+<li>多项式模型：考虑词在文档中出现的次数</li>
+</ul>
+</li>
+<li>文档分类<br>先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假设每个特征需要N个样本，10个特征则需要N^10数据量，如果相互独立，数量可降至N*10）；最后计算每个独立特征的条件概率</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://liguan.top/2019/05/04/决策树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -930,7 +1058,7 @@ Name: label, dtype: int64
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

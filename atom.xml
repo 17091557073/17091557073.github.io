@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liguan.top/"/>
-  <updated>2019-05-08T07:33:02.825Z</updated>
+  <updated>2019-05-08T10:11:59.183Z</updated>
   <id>https://liguan.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>朴素贝叶斯算法</title>
+    <link href="https://liguan.top/2019/05/08/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/"/>
+    <id>https://liguan.top/2019/05/08/朴素贝叶斯算法/</id>
+    <published>2019-05-08T08:49:15.000Z</published>
+    <updated>2019-05-08T10:11:59.183Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>条件概率<br>p(c|x)=p(x|c)*p(c)/p(x)</li><li>朴素贝叶斯<br>朴素：假设每个特征之间<strong>相互独立</strong>且<strong>同等重要</strong>；主要有两种实现方式：<ul><li>贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的）</li><li>多项式模型：考虑词在文档中出现的次数</li></ul></li><li>文档分类<br>先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假设每个特征需要N个样本，10个特征则需要N^10数据量，如果相互独立，数量可降至N*10）；最后计算每个独立特征的条件概率</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;条件概率&lt;br&gt;p(c|x)=p(x|c)*p(c)/p(x)&lt;/li&gt;
+&lt;li&gt;朴素贝叶斯&lt;br&gt;朴素：假设每个特征之间&lt;strong&gt;相互独立&lt;/strong&gt;且&lt;strong&gt;同等重要&lt;/strong&gt;；主要有两种实现方式：&lt;ul&gt;
+&lt;li&gt;贝努利模型：考
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>决策树算法(ID3)</title>
