@@ -43,9 +43,9 @@
     <link href="https://liguan.top/2019/05/08/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/"/>
     <id>https://liguan.top/2019/05/08/朴素贝叶斯算法/</id>
     <published>2019-05-08T08:49:15.000Z</published>
-    <updated>2019-05-13T14:12:19.211Z</updated>
+    <updated>2019-05-16T19:38:18.824Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>条件概率<br>p(c|x)=p(x|c)*p(c)/p(x)<br><a href="https://mp.weixin.qq.com/s/7xRyZJpXmeB77MZNLqVf3w" target="_blank" rel="noopener">联合概率和全概率公式</a></li><li>朴素贝叶斯<br>朴素：假设每个特征之间<strong>相互独立</strong>且<strong>同等重要</strong>；条件概率公式中的联合概率p(x0,x1…xN|c)等价于p(x0|c)<em>p(x1|c)</em>…p(xN|c),极大地简化了计算过程；主要有两种实现方式：<ul><li>贝努利模型：考虑词在文档中出现与否（相当于特征是等权重的）</li><li>多项式模型：考虑词在文档中出现的次数</li></ul></li><li>文档分类<br>先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假设每个特征需要N个样本，10个特征则需要N^10数据量，如果相互独立，数量可降至N*10）；最后计算每个独立特征的条件概率</li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li>条件概率<br>p(c|x)=p(x|c)*p(c)/p(x)<br><a href="https://mp.weixin.qq.com/s/7xRyZJpXmeB77MZNLqVf3w" target="_blank" rel="noopener">联合概率和全概率公式</a></li><li>朴素贝叶斯<br>朴素：假设每个特征之间<strong>相互独立</strong>且<strong>同等重要</strong>；条件概率公式中的联合概率p(x0,x1…xN|c)等价于p(x0|c)<em>p(x1|c)</em>…p(xN|c),极大地简化了计算过程；主要有两种实现方式：<ul><li><strong>贝努利模型：</strong>考虑词在文档中出现与否（相当于特征是等权重的）；P(c)= 类c下文件总数/整个训练样本的文档总数<br>P(tk|c)=(类c下包括单词tk的文件数+1)/(类c下文档总数+2) ；  在这里，m=2, p=1/2。  这里一定要注意：伯努利是以文档为粒度的，所以分母是文档总数，而不是网上以讹传讹的类c下单词总数</li><li><strong>多项式模型：</strong>考虑词在文档中出现的次数<br>在多项式模型中。 设某文档d=(t1,t2,…,tk)。tk是该文档中出现过的单词。同意反复。则<br>先验概率P(c)= 类c下单词总数/整个训练样本的单词总数<br>类条件概率P(tk|c)=(类c下单词tk在各个文档中出现过的次数之和+1)/(类c下单词总数+|V|)<br>V是训练样本的单词表（即抽取单词集合。单词出现多次，仅仅算一个），|V|则表示训练样本包括多少种单词。在这里，m=|V|, p=1/|V|。<br>P(tk|c)能够看作是单词tk在证明d属于类c上提供了多大的证据。而P(c)则能够觉得是类别c在总体上占多大比例(有多大可能性)。</li></ul></li><li>文档分类<br>先分词，把每个词出现或不出现作为一个特征；特征数量较大，故采用直方图来分析数据效果较好；要得到好的概率分布，需要足够的数据样本，特征数越多，所需样本量越大（假设每个特征需要N个样本，10个特征则需要N^10数据量，如果相互独立，数量可降至N*10）；最后计算每个独立特征的条件概率</li></ol>]]></content>
     
     <summary type="html">
     
