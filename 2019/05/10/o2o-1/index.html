@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -127,7 +127,7 @@
 
 
 
-  <title>天池o2o优惠券使用预测比赛解析 | L/G's Blog</title>
+  <title>天池o2o优惠券使用预测比赛解析 | L/G's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -146,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -315,11 +315,11 @@
 <h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="打折率-Discount-rate"><a href="#打折率-Discount-rate" class="headerlink" title="打折率 Discount_rate"></a>打折率 Discount_rate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Discount_rate 类型：\n'</span>,dfoff[<span class="string">'Discount_rate'</span>].unique())</span><br></pre></td></tr></table></figure>
 <pre><code>Discount_rate 类型：
- [&apos;null&apos; &apos;150:20&apos; &apos;20:1&apos; &apos;200:20&apos; &apos;30:5&apos; &apos;50:10&apos; &apos;10:5&apos; &apos;100:10&apos; &apos;200:30&apos;
- &apos;20:5&apos; &apos;30:10&apos; &apos;50:5&apos; &apos;150:10&apos; &apos;100:30&apos; &apos;200:50&apos; &apos;100:50&apos; &apos;300:30&apos; &apos;50:20&apos;
- &apos;0.9&apos; &apos;10:1&apos; &apos;30:1&apos; &apos;0.95&apos; &apos;100:5&apos; &apos;5:1&apos; &apos;100:20&apos; &apos;0.8&apos; &apos;50:1&apos; &apos;200:10&apos;
- &apos;300:20&apos; &apos;100:1&apos; &apos;150:30&apos; &apos;300:50&apos; &apos;20:10&apos; &apos;0.85&apos; &apos;0.6&apos; &apos;150:50&apos; &apos;0.75&apos;
- &apos;0.5&apos; &apos;200:5&apos; &apos;0.7&apos; &apos;30:20&apos; &apos;300:10&apos; &apos;0.2&apos; &apos;50:30&apos; &apos;200:100&apos; &apos;150:5&apos;]
+ [&#39;null&#39; &#39;150:20&#39; &#39;20:1&#39; &#39;200:20&#39; &#39;30:5&#39; &#39;50:10&#39; &#39;10:5&#39; &#39;100:10&#39; &#39;200:30&#39;
+ &#39;20:5&#39; &#39;30:10&#39; &#39;50:5&#39; &#39;150:10&#39; &#39;100:30&#39; &#39;200:50&#39; &#39;100:50&#39; &#39;300:30&#39; &#39;50:20&#39;
+ &#39;0.9&#39; &#39;10:1&#39; &#39;30:1&#39; &#39;0.95&#39; &#39;100:5&#39; &#39;5:1&#39; &#39;100:20&#39; &#39;0.8&#39; &#39;50:1&#39; &#39;200:10&#39;
+ &#39;300:20&#39; &#39;100:1&#39; &#39;150:30&#39; &#39;300:50&#39; &#39;20:10&#39; &#39;0.85&#39; &#39;0.6&#39; &#39;150:50&#39; &#39;0.75&#39;
+ &#39;0.5&#39; &#39;200:5&#39; &#39;0.7&#39; &#39;30:20&#39; &#39;300:10&#39; &#39;0.2&#39; &#39;50:30&#39; &#39;200:100&#39; &#39;150:5&#39;]
 </code></pre><p>打折率分为 3 种情况：</p>
 <ul>
 <li><p>‘null’ 表示没有打折</p>
@@ -350,7 +350,7 @@
   0.33333333  0.94        0.93333333  0.975       0.99      ]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="距离-Distance"><a href="#距离-Distance" class="headerlink" title="距离 Distance"></a>距离 Distance</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Distance 类型：'</span>,dfoff[<span class="string">'Distance'</span>].unique())</span><br></pre></td></tr></table></figure>
-<pre><code>Distance 类型： [&apos;0&apos; &apos;1&apos; &apos;null&apos; &apos;2&apos; &apos;10&apos; &apos;4&apos; &apos;7&apos; &apos;9&apos; &apos;3&apos; &apos;5&apos; &apos;6&apos; &apos;8&apos;]
+<pre><code>Distance 类型： [&#39;0&#39; &#39;1&#39; &#39;null&#39; &#39;2&#39; &#39;10&#39; &#39;4&#39; &#39;7&#39; &#39;9&#39; &#39;3&#39; &#39;5&#39; &#39;6&#39; &#39;8&#39;]
 </code></pre><p>将距离 str 转为 int。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># convert distance</span></span><br><span class="line">dfoff[<span class="string">'distance'</span>] = dfoff[<span class="string">'Distance'</span>].replace(<span class="string">'null'</span>, <span class="number">-1</span>).astype(int)</span><br><span class="line">print(dfoff[<span class="string">'distance'</span>].unique())</span><br><span class="line">dftest[<span class="string">'distance'</span>] = dftest[<span class="string">'Distance'</span>].replace(<span class="string">'null'</span>, <span class="number">-1</span>).astype(int)</span><br><span class="line">print(dftest[<span class="string">'distance'</span>].unique())</span><br></pre></td></tr></table></figure>
 <pre><code>[ 0  1 -1  2 10  4  7  9  3  5  6  8]
@@ -448,7 +448,7 @@ Valid Set:
 Name: label, dtype: int64
 </code></pre><h3 id="特征数量"><a href="#特征数量" class="headerlink" title="特征数量"></a>特征数量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># feature</span></span><br><span class="line">original_feature = [<span class="string">'discount_rate'</span>,<span class="string">'discount_type'</span>,<span class="string">'discount_man'</span>, <span class="string">'discount_jian'</span>,<span class="string">'distance'</span>, <span class="string">'weekday'</span>, <span class="string">'weekday_type'</span>] + weekdaycols</span><br><span class="line">print(<span class="string">'共有特征：'</span>,len(original_feature),<span class="string">'个'</span>)</span><br><span class="line">print(original_feature)</span><br></pre></td></tr></table></figure>
 <pre><code>共有特征： 14 个
-[&apos;discount_rate&apos;, &apos;discount_type&apos;, &apos;discount_man&apos;, &apos;discount_jian&apos;, &apos;distance&apos;, &apos;weekday&apos;, &apos;weekday_type&apos;, &apos;weekday_1&apos;, &apos;weekday_2&apos;, &apos;weekday_3&apos;, &apos;weekday_4&apos;, &apos;weekday_5&apos;, &apos;weekday_6&apos;, &apos;weekday_7&apos;]
+[&#39;discount_rate&#39;, &#39;discount_type&#39;, &#39;discount_man&#39;, &#39;discount_jian&#39;, &#39;distance&#39;, &#39;weekday&#39;, &#39;weekday_type&#39;, &#39;weekday_1&#39;, &#39;weekday_2&#39;, &#39;weekday_3&#39;, &#39;weekday_4&#39;, &#39;weekday_5&#39;, &#39;weekday_6&#39;, &#39;weekday_7&#39;]
 </code></pre><h3 id="建立模型"><a href="#建立模型" class="headerlink" title="建立模型"></a>建立模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_model</span><span class="params">(data, predictors)</span>:</span></span><br><span class="line">    </span><br><span class="line">    classifier = <span class="keyword">lambda</span>: SGDClassifier(</span><br><span class="line">        loss=<span class="string">'log'</span>,  <span class="comment"># loss function: logistic regression</span></span><br><span class="line">        penalty=<span class="string">'elasticnet'</span>, <span class="comment"># L1 &amp; L2</span></span><br><span class="line">        fit_intercept=<span class="literal">True</span>,  <span class="comment"># 是否存在截距，默认存在</span></span><br><span class="line">        max_iter=<span class="number">100</span>, </span><br><span class="line">        shuffle=<span class="literal">True</span>,  <span class="comment"># Whether or not the training data should be shuffled after each epoch</span></span><br><span class="line">        n_jobs=<span class="number">1</span>, <span class="comment"># The number of processors to use</span></span><br><span class="line">        class_weight=<span class="literal">None</span>) <span class="comment"># Weights associated with classes. If not given, all classes are supposed to have weight one.</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 管道机制使得参数集在新数据集（比如测试集）上的重复使用，管道机制实现了对全部步骤的流式化封装和管理。</span></span><br><span class="line">    model = Pipeline(steps=[</span><br><span class="line">        (<span class="string">'ss'</span>, StandardScaler()), <span class="comment"># transformer</span></span><br><span class="line">        (<span class="string">'en'</span>, classifier())  <span class="comment"># estimator</span></span><br><span class="line">    ])</span><br><span class="line"> </span><br><span class="line">    parameters = &#123;</span><br><span class="line">        <span class="string">'en__alpha'</span>: [ <span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>],</span><br><span class="line">        <span class="string">'en__l1_ratio'</span>: [ <span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>]</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># StratifiedKFold用法类似Kfold，但是他是分层采样，确保训练集，测试集中各类别样本的比例与原始数据集中相同。</span></span><br><span class="line">    folder = StratifiedKFold(n_splits=<span class="number">3</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Exhaustive search over specified parameter values for an estimator.</span></span><br><span class="line">    grid_search = GridSearchCV(</span><br><span class="line">        model, </span><br><span class="line">        parameters, </span><br><span class="line">        cv=folder, </span><br><span class="line">        n_jobs=<span class="number">-1</span>,  <span class="comment"># -1 means using all processors</span></span><br><span class="line">        verbose=<span class="number">1</span>)</span><br><span class="line">    grid_search = grid_search.fit(data[predictors], </span><br><span class="line">                                  data[<span class="string">'label'</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> grid_search</span><br></pre></td></tr></table></figure>
 <h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predictors = original_feature</span><br><span class="line">model = check_model(train, predictors)</span><br></pre></td></tr></table></figure>
 <pre><code>Fitting 3 folds for each of 9 candidates, totalling 27 fits
@@ -803,7 +803,7 @@ Name: label, dtype: int64
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -856,6 +856,8 @@ Name: label, dtype: int64
   
 
   
+  
+
 
   
 
