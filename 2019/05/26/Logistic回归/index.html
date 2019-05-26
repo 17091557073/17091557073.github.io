@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：  f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2">
+<meta name="description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Logistic回归">
 <meta property="og:url" content="https://liguan.top/2019/05/26/Logistic回归/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
-<meta property="og:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：  f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2">
+<meta property="og:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-26T15:39:08.217Z">
+<meta property="og:updated_time" content="2019-05-26T16:09:50.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic回归">
-<meta name="twitter:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：  f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2">
+<meta name="twitter:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 
 
 
@@ -303,7 +303,7 @@
       
         <ul>
 <li><strong>主要思想：</strong><br>根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。</li>
-<li><strong>Sigmoid函数：</strong>  <script type="math/tex; mode=display">f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2</script></li>
+<li><strong>Sigmoid函数：</strong><br>为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成一个概率估计。</li>
 </ul>
 
       
