@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liguan.top/"/>
-  <updated>2019-05-26T16:09:50.931Z</updated>
+  <updated>2019-06-02T06:58:56.604Z</updated>
   <id>https://liguan.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test2</title>
+    <link href="https://liguan.top/2019/06/02/test2/"/>
+    <id>https://liguan.top/2019/06/02/test2/</id>
+    <published>2019-06-02T06:53:47.000Z</published>
+    <updated>2019-06-02T06:58:56.604Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="test2/交叉熵推导.jpg" alt="交叉熵"></p><p>&lt;img src=”img/图片名.jpg&gt;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;test2/交叉熵推导.jpg&quot; alt=&quot;交叉熵&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;img src=”img/图片名.jpg&amp;gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Logistic回归</title>
