@@ -89,7 +89,8 @@
 <meta property="og:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://liguan.top/2019/05/26/Logistic回归/交叉熵损失函数.jpg">
-<meta property="og:updated_time" content="2019-06-02T07:48:25.441Z">
+<meta property="og:image" content="https://liguan.top/2019/05/26/Logistic回归/交叉熵损失函数求偏导.png">
+<meta property="og:updated_time" content="2019-06-03T16:30:33.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic回归">
 <meta name="twitter:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
@@ -307,6 +308,12 @@
 <li><strong>主要思想：</strong><br>根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。</li>
 <li><strong>Sigmoid函数：</strong><br>为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成一个概率估计。</li>
 <li><strong>极大似然估计&amp;交叉熵损失函数：</strong>  <img src="/2019/05/26/Logistic回归/交叉熵损失函数.jpg" title="交叉熵损失函数推导"></li>
+<li><strong>最优化算法：</strong>  <ul>
+<li>梯度下降求损失函数最小值  <img src="/2019/05/26/Logistic回归/交叉熵损失函数求偏导.png" title="交叉熵损失函数求偏导"></li>
+<li>梯度上升算法，要找到某个函数的最大值，最好的方法就是沿着该函数的梯度方向（即函数值增长最快的方向）探寻，设置步长，每移动一步到达下个点后会重新计算梯度方向，如此循环迭代，直至迭代次数达到某个指定值或算法达到某个可以允许的误差范围。</li>
+<li>随机梯度上升算法</li>
+</ul>
+</li>
 </ul>
 
       
@@ -332,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/10/o2o-1/" rel="next" title="天池o2o优惠券使用预测比赛解析">
-                <i class="fa fa-chevron-left"></i> 天池o2o优惠券使用预测比赛解析
+              <a href="/2019/05/10/o2o-1/" rel="next" title="天池-O2O优惠券使用预测">
+                <i class="fa fa-chevron-left"></i> 天池-O2O优惠券使用预测
               </a>
             
           </div>
