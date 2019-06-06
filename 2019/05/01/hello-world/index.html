@@ -11,8 +11,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
-
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -68,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Life,">
 
 
 
@@ -82,13 +102,14 @@
 
 
 <meta name="description" content="工作快四年，回想一下，自己总是很难完整得看完一本书；哪怕看完了，也是属于那种完成任务式的自欺欺人，合上最后一页，甚至总结不出这本书讲了什么，细思极恐，究其原因，觉得还是得要做些笔记； 一直很想写博客，也尝试过传统的CSDN、博客园，到后来却都没坚持下去，不了了之；看到现在很多人开始自己建网站写博客，感觉挺新奇酷炫，一颗好奇烦躁的心又开始燃烧了起来； 记一些工作生活中自己的所感所得，也算是对自己的一">
+<meta name="keywords" content="Life">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
 <meta property="og:url" content="https://liguan.top/2019/05/01/hello-world/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
 <meta property="og:description" content="工作快四年，回想一下，自己总是很难完整得看完一本书；哪怕看完了，也是属于那种完成任务式的自欺欺人，合上最后一页，甚至总结不出这本书讲了什么，细思极恐，究其原因，觉得还是得要做些笔记； 一直很想写博客，也尝试过传统的CSDN、博客园，到后来却都没坚持下去，不了了之；看到现在很多人开始自己建网站写博客，感觉挺新奇酷炫，一颗好奇烦躁的心又开始燃烧了起来； 记一些工作生活中自己的所感所得，也算是对自己的一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-26T04:48:22.489Z">
+<meta property="og:updated_time" content="2019-06-06T15:37:27.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
 <meta name="twitter:description" content="工作快四年，回想一下，自己总是很难完整得看完一本书；哪怕看完了，也是属于那种完成任务式的自欺欺人，合上最后一页，甚至总结不出这本书讲了什么，细思极恐，究其原因，觉得还是得要做些笔记； 一直很想写博客，也尝试过传统的CSDN、博客园，到后来却都没坚持下去，不了了之；看到现在很多人开始自己建网站写博客，感觉挺新奇酷炫，一颗好奇烦躁的心又开始燃烧了起来； 记一些工作生活中自己的所感所得，也算是对自己的一">
@@ -188,6 +209,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
           </a>
         </li>
       
@@ -319,6 +350,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Life/" rel="tag"># Life</a>
+          
+        </div>
+      
 
       
       
@@ -414,6 +451,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
