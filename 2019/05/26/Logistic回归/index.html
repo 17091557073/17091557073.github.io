@@ -101,20 +101,20 @@
 
 
 
-<meta name="description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。     sqrt()Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logis">
+<meta name="description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。  Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 <meta name="keywords" content="ML in Action">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Logistic回归">
 <meta property="og:url" content="https://liguan.top/2019/05/26/Logistic回归/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
-<meta property="og:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。     sqrt()Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logis">
+<meta property="og:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。  Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://liguan.top/2019/05/26/Logistic回归/交叉熵损失函数.jpg">
 <meta property="og:image" content="https://liguan.top/2019/05/26/Logistic回归/交叉熵损失函数求偏导.png">
-<meta property="og:updated_time" content="2019-06-08T08:53:39.894Z">
+<meta property="og:updated_time" content="2019-06-08T09:34:44.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic回归">
-<meta name="twitter:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。     sqrt()Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logis">
+<meta name="twitter:description" content="主要思想：根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。  Sigmoid函数：为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成">
 <meta name="twitter:image" content="https://liguan.top/2019/05/26/Logistic回归/交叉熵损失函数.jpg">
 
 
@@ -335,8 +335,8 @@
       
 
       
-        <h6 id="主要思想："><a href="#主要思想：" class="headerlink" title="主要思想："></a><strong>主要思想：</strong></h6><p>根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。    </p>
-<script type="math/tex; mode=display">sqrt()</script><h6 id="Sigmoid函数："><a href="#Sigmoid函数：" class="headerlink" title="Sigmoid函数："></a><strong>Sigmoid函数：</strong></h6><p>为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成一个概率估计。</p>
+        <h6 id="主要思想："><a href="#主要思想：" class="headerlink" title="主要思想："></a><strong>主要思想：</strong></h6><p>根据现有数据，对分类边界线建立回归方程（用一条直线对数据点进行拟合的过程称作回归），使用最优化算法，找到最佳拟合参数集。 </p>
+<h6 id="Sigmoid函数："><a href="#Sigmoid函数：" class="headerlink" title="Sigmoid函数："></a><strong>Sigmoid函数：</strong></h6><p>为了实现Logistic回归分类器，我们在每个特征上都乘以一个回归系数，然后把所有结果值相加，将这个总和代入Sigmoid阶跃函数中，进而得到一个[0,1]之间的数值，大于0.5的数据归入1类，小于0.5归入0类，所以Logistic回归也被看成一个概率估计。</p>
 <h6 id="极大似然估计-amp-交叉熵损失函数："><a href="#极大似然估计-amp-交叉熵损失函数：" class="headerlink" title="极大似然估计&amp;交叉熵损失函数："></a><strong>极大似然估计&amp;交叉熵损失函数：</strong></h6><p><img src="/2019/05/26/Logistic回归/交叉熵损失函数.jpg" alt="交叉熵损失函数推导"></p>
 <h6 id="最优化算法："><a href="#最优化算法：" class="headerlink" title="最优化算法："></a><strong>最优化算法：</strong></h6><ul>
 <li>梯度下降求损失函数最小值<br>  <img src="/2019/05/26/Logistic回归/交叉熵损失函数求偏导.png" alt="交叉熵损失函数求偏导"></li>
