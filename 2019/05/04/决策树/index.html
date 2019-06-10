@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="ML in Action,">
+  <meta name="keywords" content="ID3,信息增益,">
 
 
 
@@ -102,17 +102,17 @@
 
 
 <meta name="description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择 step2:以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论），ID3算法只能处理离散性特征 step3:如果已经处理了所有的特征，但类标签还不是唯">
-<meta name="keywords" content="ML in Action">
+<meta name="keywords" content="ID3,信息增益">
 <meta property="og:type" content="article">
-<meta property="og:title" content="决策树算法(ID3)">
+<meta property="og:title" content="决策树算法">
 <meta property="og:url" content="https://liguan.top/2019/05/04/决策树/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
 <meta property="og:description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择 step2:以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论），ID3算法只能处理离散性特征 step3:如果已经处理了所有的特征，但类标签还不是唯">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://liguan.top/2019/05/04/决策树/信息增益.jpg">
-<meta property="og:updated_time" content="2019-06-08T08:57:13.433Z">
+<meta property="og:updated_time" content="2019-06-10T15:34:31.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="决策树算法(ID3)">
+<meta name="twitter:title" content="决策树算法">
 <meta name="twitter:description" content="step1:依据哪个属性来划分数据，使无序数据变得更加有序；划分数据集前后信息量发生的变化称为信息增益，计算每个特征属性划分数据集时的信息增益，最高那个特征就是最好的选择 step2:以此递归直至遍历完所有特征属性，或者每个分支下所有实例具有相同的分类（存在某些算法C4.5,CART划分时不消耗特征，以后再讨论），ID3算法只能处理离散性特征 step3:如果已经处理了所有的特征，但类标签还不是唯">
 <meta name="twitter:image" content="https://liguan.top/2019/05/04/决策树/信息增益.jpg">
 
@@ -150,7 +150,7 @@
 
 
 
-  <title>决策树算法(ID3) | L/G's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>决策树算法 | L/G's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">决策树算法(ID3)</h1>
+          <h1 class="post-title" itemprop="name headline">决策树算法</h1>
         
 
         <div class="post-meta">
@@ -316,6 +316,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习实战/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -369,7 +391,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ML-in-Action/" rel="tag"># ML in Action</a>
+            <a href="/tags/ID3/" rel="tag"># ID3</a>
+          
+            <a href="/tags/信息增益/" rel="tag"># 信息增益</a>
           
         </div>
       
@@ -480,13 +504,22 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
