@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liguan.top/"/>
-  <updated>2019-06-10T15:29:57.456Z</updated>
+  <updated>2019-06-16T16:40:20.781Z</updated>
   <id>https://liguan.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://liguan.top/2019/06/08/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/"/>
     <id>https://liguan.top/2019/06/08/支持向量机/</id>
     <published>2019-06-08T08:43:00.000Z</published>
-    <updated>2019-06-10T15:29:57.456Z</updated>
+    <updated>2019-06-16T16:40:20.781Z</updated>
     
-    <content type="html"><![CDATA[<h6 id="基本线性SVM推导"><a href="#基本线性SVM推导" class="headerlink" title="基本线性SVM推导"></a>基本线性SVM推导</h6><p><a href="https://mp.weixin.qq.com/s/Ahvp0IAdgK9OVHFXigBk_Q" target="_blank" rel="noopener"><em>参考文献_线性SVM</em></a><br><a href="https://mp.weixin.qq.com/s/Q5bFR3vDDXPhtzXlVAE3Rg" target="_blank" rel="noopener"><em>参考文献_对偶SVM</em></a><br><img src="/2019/06/08/支持向量机/基本线性SVM推导.jpg" alt="基本线性SVM推导"></p><h6 id="SMO优化算法推导"><a href="#SMO优化算法推导" class="headerlink" title="SMO优化算法推导"></a>SMO优化算法推导</h6><p>在KKT约束条件下,最小化目标函数。序列最小优化（SMO）</p>]]></content>
+    <content type="html"><![CDATA[<h6 id="基本线性SVM推导"><a href="#基本线性SVM推导" class="headerlink" title="基本线性SVM推导"></a>基本线性SVM推导</h6><p><a href="https://mp.weixin.qq.com/s/Ahvp0IAdgK9OVHFXigBk_Q" target="_blank" rel="noopener"><em>参考文献_线性SVM</em></a><br><a href="https://mp.weixin.qq.com/s/Q5bFR3vDDXPhtzXlVAE3Rg" target="_blank" rel="noopener"><em>参考文献_对偶SVM</em></a><br><img src="/2019/06/08/支持向量机/基本线性SVM推导.jpg" alt="基本线性SVM推导"></p><h6 id="SMO优化算法推导"><a href="#SMO优化算法推导" class="headerlink" title="SMO优化算法推导"></a>SMO优化算法推导</h6><p>在KKT约束条件下,最小化目标函数。序列最小优化（SMO）：<br><img src="/2019/06/08/支持向量机/SMO推导.jpg" alt="SMO推导"></p><h6 id="超参数详解"><a href="#超参数详解" class="headerlink" title="超参数详解"></a>超参数详解</h6><p><img src="/2019/06/08/支持向量机/超参数详解.png" alt="超参数详解"></p>]]></content>
     
     <summary type="html">
     
