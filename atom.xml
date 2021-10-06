@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liguan.top/"/>
-  <updated>2019-06-16T16:40:20.781Z</updated>
+  <updated>2021-10-06T02:50:44.394Z</updated>
   <id>https://liguan.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>等额本金vs等额本息</title>
+    <link href="https://liguan.top/2021/10/06/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91vs%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF/"/>
+    <id>https://liguan.top/2021/10/06/等额本金vs等额本息/</id>
+    <published>2021-10-06T02:22:00.000Z</published>
+    <updated>2021-10-06T02:50:44.394Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="月还款额及利息公式推导"><a href="#月还款额及利息公式推导" class="headerlink" title="月还款额及利息公式推导"></a>月还款额及利息公式推导</h6><p><img src="/2021/10/06/等额本金vs等额本息/公式推导.jpg" alt="公式推导"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;月还款额及利息公式推导&quot;&gt;&lt;a href=&quot;#月还款额及利息公式推导&quot; class=&quot;headerlink&quot; title=&quot;月还款额及利息公式推导&quot;&gt;&lt;/a&gt;月还款额及利息公式推导&lt;/h6&gt;&lt;p&gt;&lt;img src=&quot;/2021/10/06/等额本金vs等额本息/公
+      
+    
+    </summary>
+    
+      <category term="Daily life" scheme="https://liguan.top/categories/Daily-life/"/>
+    
+    
+      <category term="等额本息" scheme="https://liguan.top/tags/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>支持向量机</title>
