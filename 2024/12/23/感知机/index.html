@@ -101,22 +101,22 @@
 
 
 
-<meta name="description" content="单层感知机只能表示线性空间，机器学习的就是确定合适参数（w1,w2,b）的过程,以下示例参数由人工确定。  与门 12345678910111213def AND(x1,x2):    #输入信号    x=np.array([x1,x2])    #权重，控制输入信号的重要性    w=np.array([0.5,0.5])    #偏置，调整神经元被激活的容易程度    b=-0.7    #">
+<meta name="description" content="单层感知机又称朴素感知机，只能表示线性空间，以下示例参数（w1,w2,b）由人工确定。  与门 12345678910111213def AND(x1,x2):    #输入信号    x=np.array([x1,x2])    #权重，控制输入信号的重要性    w=np.array([0.5,0.5])    #偏置，调整神经元被激活的容易程度    b=-0.7    #输出    tmp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="感知机">
 <meta property="og:url" content="https://17091557073.github.io/2024/12/23/感知机/index.html">
 <meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
-<meta property="og:description" content="单层感知机只能表示线性空间，机器学习的就是确定合适参数（w1,w2,b）的过程,以下示例参数由人工确定。  与门 12345678910111213def AND(x1,x2):    #输入信号    x=np.array([x1,x2])    #权重，控制输入信号的重要性    w=np.array([0.5,0.5])    #偏置，调整神经元被激活的容易程度    b=-0.7    #">
+<meta property="og:description" content="单层感知机又称朴素感知机，只能表示线性空间，以下示例参数（w1,w2,b）由人工确定。  与门 12345678910111213def AND(x1,x2):    #输入信号    x=np.array([x1,x2])    #权重，控制输入信号的重要性    w=np.array([0.5,0.5])    #偏置，调整神经元被激活的容易程度    b=-0.7    #输出    tmp">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://17091557073.github.io/2024/12/23/感知机/pasted-1.png">
 <meta property="og:image" content="https://17091557073.github.io/2024/12/23/感知机/pasted-3.png">
 <meta property="og:image" content="https://17091557073.github.io/2024/12/23/感知机/pasted-2.png">
 <meta property="og:image" content="https://17091557073.github.io/2024/12/23/感知机/pasted-5.png">
 <meta property="og:image" content="https://17091557073.github.io/2024/12/23/感知机/pasted-4.png">
-<meta property="og:updated_time" content="2024-12-23T13:49:38.229Z">
+<meta property="og:updated_time" content="2024-12-24T13:10:21.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="感知机">
-<meta name="twitter:description" content="单层感知机只能表示线性空间，机器学习的就是确定合适参数（w1,w2,b）的过程,以下示例参数由人工确定。  与门 12345678910111213def AND(x1,x2):    #输入信号    x=np.array([x1,x2])    #权重，控制输入信号的重要性    w=np.array([0.5,0.5])    #偏置，调整神经元被激活的容易程度    b=-0.7    #">
+<meta name="twitter:description" content="单层感知机又称朴素感知机，只能表示线性空间，以下示例参数（w1,w2,b）由人工确定。  与门 12345678910111213def AND(x1,x2):    #输入信号    x=np.array([x1,x2])    #权重，控制输入信号的重要性    w=np.array([0.5,0.5])    #偏置，调整神经元被激活的容易程度    b=-0.7    #输出    tmp">
 <meta name="twitter:image" content="https://17091557073.github.io/2024/12/23/感知机/pasted-1.png">
 
 
@@ -369,7 +369,7 @@
       
 
       
-        <h6 id="单层感知机"><a href="#单层感知机" class="headerlink" title="单层感知机"></a>单层感知机</h6><p>只能表示线性空间，机器学习的就是<strong>确定合适参数</strong>（w1,w2,b）的过程,以下示例参数由人工确定。</p>
+        <h6 id="单层感知机"><a href="#单层感知机" class="headerlink" title="单层感知机"></a>单层感知机</h6><p>又称朴素感知机，只能表示线性空间，以下示例参数（w1,w2,b）由人工确定。</p>
 <ul>
 <li><p>与门<br><img src="/2024/12/23/感知机/pasted-1.png" alt="upload successful"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">AND</span><span class="params">(x1,x2)</span>:</span></span><br><span class="line">    <span class="comment">#输入信号</span></span><br><span class="line">    x=np.array([x1,x2])</span><br><span class="line">    <span class="comment">#权重，控制输入信号的重要性</span></span><br><span class="line">    w=np.array([<span class="number">0.5</span>,<span class="number">0.5</span>])</span><br><span class="line">    <span class="comment">#偏置，调整神经元被激活的容易程度</span></span><br><span class="line">    b=<span class="number">-0.7</span></span><br><span class="line">    <span class="comment">#输出</span></span><br><span class="line">    tmp=np.sum(w*x)+b</span><br><span class="line">    <span class="keyword">if</span> tmp&lt;=<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
@@ -384,7 +384,8 @@
 <h6 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h6><p>可以表示非线性空间</p>
 <p><img src="/2024/12/23/感知机/pasted-5.png" alt="upload successful"></p>
 <ul>
-<li>异或门<br><img src="/2024/12/23/感知机/pasted-4.png" alt="upload successful"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">XOR</span><span class="params">(x1,x2)</span>:</span></span><br><span class="line">    s1=NAND(x1,x2)</span><br><span class="line">    s2=OR(x1,x2)</span><br><span class="line">    y=AND(s1,s2)</span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure></li>
+<li>异或门<br><img src="/2024/12/23/感知机/pasted-4.png" alt="upload successful"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">XOR</span><span class="params">(x1,x2)</span>:</span></span><br><span class="line">    s1=NAND(x1,x2)</span><br><span class="line">    s2=OR(x1,x2)</span><br><span class="line">    y=AND(s1,s2)</span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
