@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="特征工程,交叉验证,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="L/G's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="赛题链接： 天池o2o优惠券使用预测 导入相关库123456789101112131415161718# import libraries necessary for this projectimport os, sys, pickle import numpy as npimport pandas as pd from datetime import date from sklearn.mode">
+<meta name="keywords" content="特征工程,交叉验证">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O2O优惠券使用预测">
+<meta property="og:url" content="https://17091557073.github.io/2019/05/10/o2o-1/index.html">
+<meta property="og:site_name" content="L&#x2F;G&#39;s Blog">
+<meta property="og:description" content="赛题链接： 天池o2o优惠券使用预测 导入相关库123456789101112131415161718# import libraries necessary for this projectimport os, sys, pickle import numpy as npimport pandas as pd from datetime import date from sklearn.mode">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2024-12-31T15:55:34.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="O2O优惠券使用预测">
+<meta name="twitter:description" content="赛题链接： 天池o2o优惠券使用预测 导入相关库123456789101112131415161718# import libraries necessary for this projectimport os, sys, pickle import numpy as npimport pandas as pd from datetime import date from sklearn.mode">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://17091557073.github.io/2019/05/10/o2o-1/">
+
+
+
+
+
+  <title>O2O优惠券使用预测 | L/G's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L/G's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://17091557073.github.io/2019/05/10/o2o-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/psb.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L/G's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">O2O优惠券使用预测</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T16:19:00+08:00">
+                2019-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/天池/" itemprop="url" rel="index">
+                    <span itemprop="name">天池</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>赛题链接：</strong></p>
+<p><a href="https://tianchi.aliyun.com/getStart/introduction.htm?spm=5176.100066.0.0.518433afBqXIKM&amp;raceId=231593" target="_blank" rel="noopener">天池o2o优惠券使用预测</a></p>
+<h2 id="导入相关库"><a href="#导入相关库" class="headerlink" title="导入相关库"></a>导入相关库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import libraries necessary for this project</span></span><br><span class="line"><span class="keyword">import</span> os, sys, pickle</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold, train_test_split, StratifiedKFold, cross_val_score, GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> Pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> SGDClassifier, LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> log_loss, roc_auc_score, auc, roc_curve</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"> </span><br><span class="line"><span class="comment"># display for this notebook</span></span><br><span class="line">%matplotlib inline</span><br><span class="line">%config InlineBackend.figure_format = <span class="string">'retina'</span></span><br></pre></td></tr></table></figure>
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dfoff = pd.read_csv(<span class="string">'data/ccf_offline_stage1_train.csv'</span>)</span><br><span class="line">dfon = pd.read_csv(<span class="string">'data/ccf_online_stage1_train.csv'</span>)</span><br><span class="line">dftest = pd.read_csv(<span class="string">'data/ccf_offline_stage1_test_revised.csv'</span>)</span><br><span class="line"> </span><br><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="简单统计"><a href="#简单统计" class="headerlink" title="简单统计"></a>简单统计</h3><p>简单统计一下用户使用优惠券的情况：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'有优惠卷，购买商品：%d'</span> % dfoff[(dfoff[<span class="string">'Date_received'</span>] != <span class="string">'null'</span>) &amp; (dfoff[<span class="string">'Date'</span>] != <span class="string">'null'</span>)].shape[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'有优惠卷，未购商品：%d'</span> % dfoff[(dfoff[<span class="string">'Date_received'</span>] != <span class="string">'null'</span>) &amp; (dfoff[<span class="string">'Date'</span>] == <span class="string">'null'</span>)].shape[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'无优惠卷，购买商品：%d'</span> % dfoff[(dfoff[<span class="string">'Date_received'</span>] == <span class="string">'null'</span>) &amp; (dfoff[<span class="string">'Date'</span>] != <span class="string">'null'</span>)].shape[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'无优惠卷，未购商品：%d'</span> % dfoff[(dfoff[<span class="string">'Date_received'</span>] == <span class="string">'null'</span>) &amp; (dfoff[<span class="string">'Date'</span>] == <span class="string">'null'</span>)].shape[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>有优惠卷，购买商品：75382
+有优惠卷，未购商品：977900
+无优惠卷，购买商品：701602
+无优惠卷，未购商品：0
+</code></pre><p>可见，很多人（701602）购买商品却没有使用优惠券，也有很多人（977900）有优惠券但却没有使用，真正使用优惠券购买商品的人（75382）很少！所以，这个比赛的意义就是把优惠券送给真正可能会购买商品的人。</p>
+<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="打折率-Discount-rate"><a href="#打折率-Discount-rate" class="headerlink" title="打折率 Discount_rate"></a>打折率 Discount_rate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Discount_rate 类型：\n'</span>,dfoff[<span class="string">'Discount_rate'</span>].unique())</span><br></pre></td></tr></table></figure>
+<pre><code>Discount_rate 类型：
+ [&#39;null&#39; &#39;150:20&#39; &#39;20:1&#39; &#39;200:20&#39; &#39;30:5&#39; &#39;50:10&#39; &#39;10:5&#39; &#39;100:10&#39; &#39;200:30&#39;
+ &#39;20:5&#39; &#39;30:10&#39; &#39;50:5&#39; &#39;150:10&#39; &#39;100:30&#39; &#39;200:50&#39; &#39;100:50&#39; &#39;300:30&#39; &#39;50:20&#39;
+ &#39;0.9&#39; &#39;10:1&#39; &#39;30:1&#39; &#39;0.95&#39; &#39;100:5&#39; &#39;5:1&#39; &#39;100:20&#39; &#39;0.8&#39; &#39;50:1&#39; &#39;200:10&#39;
+ &#39;300:20&#39; &#39;100:1&#39; &#39;150:30&#39; &#39;300:50&#39; &#39;20:10&#39; &#39;0.85&#39; &#39;0.6&#39; &#39;150:50&#39; &#39;0.75&#39;
+ &#39;0.5&#39; &#39;200:5&#39; &#39;0.7&#39; &#39;30:20&#39; &#39;300:10&#39; &#39;0.2&#39; &#39;50:30&#39; &#39;200:100&#39; &#39;150:5&#39;]
+</code></pre><p>打折率分为 3 种情况：</p>
+<ul>
+<li><p>‘null’ 表示没有打折</p>
+</li>
+<li><p>[0,1] 表示折扣率</p>
+</li>
+<li><p>x:y 表示满x减y</p>
+</li>
+</ul>
+<p><strong>处理方式：</strong></p>
+<ul>
+<li><p>打折类型：getDiscountType()</p>
+</li>
+<li><p>折扣率：convertRate()</p>
+</li>
+<li><p>满多少：getDiscountMan()</p>
+</li>
+<li><p>减多少：getDiscountJian()</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Convert Discount_rate and Distance</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDiscountType</span><span class="params">(row)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> row == <span class="string">'null'</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'null'</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="string">':'</span> <span class="keyword">in</span> row:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convertRate</span><span class="params">(row)</span>:</span></span><br><span class="line">    <span class="string">"""Convert discount to rate"""</span></span><br><span class="line">    <span class="keyword">if</span> row == <span class="string">'null'</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="string">':'</span> <span class="keyword">in</span> row:</span><br><span class="line">        rows = row.split(<span class="string">':'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0</span> - float(rows[<span class="number">1</span>])/float(rows[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> float(row)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDiscountMan</span><span class="params">(row)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">':'</span> <span class="keyword">in</span> row:</span><br><span class="line">        rows = row.split(<span class="string">':'</span>)</span><br><span class="line">        <span class="keyword">return</span> int(rows[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDiscountJian</span><span class="params">(row)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">':'</span> <span class="keyword">in</span> row:</span><br><span class="line">        rows = row.split(<span class="string">':'</span>)</span><br><span class="line">        <span class="keyword">return</span> int(rows[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">processData</span><span class="params">(df)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># convert discount_rate</span></span><br><span class="line">    df[<span class="string">'discount_type'</span>] = df[<span class="string">'Discount_rate'</span>].apply(getDiscountType)</span><br><span class="line">    df[<span class="string">'discount_rate'</span>] = df[<span class="string">'Discount_rate'</span>].apply(convertRate)</span><br><span class="line">    df[<span class="string">'discount_man'</span>] = df[<span class="string">'Discount_rate'</span>].apply(getDiscountMan)</span><br><span class="line">    df[<span class="string">'discount_jian'</span>] = df[<span class="string">'Discount_rate'</span>].apply(getDiscountJian)</span><br><span class="line">    </span><br><span class="line">    print(df[<span class="string">'discount_rate'</span>].unique())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> df</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dfoff = processData(dfoff)</span><br><span class="line">dftest = processData(dftest)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 1.          0.86666667  0.95        0.9         0.83333333  0.8         0.5
+  0.85        0.75        0.66666667  0.93333333  0.7         0.6
+  0.96666667  0.98        0.99        0.975       0.33333333  0.2         0.4       ]
+[ 0.83333333  0.9         0.96666667  0.8         0.95        0.75        0.98
+  0.5         0.86666667  0.6         0.66666667  0.7         0.85
+  0.33333333  0.94        0.93333333  0.975       0.99      ]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="距离-Distance"><a href="#距离-Distance" class="headerlink" title="距离 Distance"></a>距离 Distance</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Distance 类型：'</span>,dfoff[<span class="string">'Distance'</span>].unique())</span><br></pre></td></tr></table></figure>
+<pre><code>Distance 类型： [&#39;0&#39; &#39;1&#39; &#39;null&#39; &#39;2&#39; &#39;10&#39; &#39;4&#39; &#39;7&#39; &#39;9&#39; &#39;3&#39; &#39;5&#39; &#39;6&#39; &#39;8&#39;]
+</code></pre><p>将距离 str 转为 int。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># convert distance</span></span><br><span class="line">dfoff[<span class="string">'distance'</span>] = dfoff[<span class="string">'Distance'</span>].replace(<span class="string">'null'</span>, <span class="number">-1</span>).astype(int)</span><br><span class="line">print(dfoff[<span class="string">'distance'</span>].unique())</span><br><span class="line">dftest[<span class="string">'distance'</span>] = dftest[<span class="string">'Distance'</span>].replace(<span class="string">'null'</span>, <span class="number">-1</span>).astype(int)</span><br><span class="line">print(dftest[<span class="string">'distance'</span>].unique())</span><br></pre></td></tr></table></figure>
+<pre><code>[ 0  1 -1  2 10  4  7  9  3  5  6  8]
+[ 1 -1  5  2  0 10  3  6  7  4  9  8]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="领劵日期-Date-received"><a href="#领劵日期-Date-received" class="headerlink" title="领劵日期 Date_received"></a>领劵日期 Date_received</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">date_received = dfoff[<span class="string">'Date_received'</span>].unique()</span><br><span class="line">date_received = sorted(date_received[date_received != <span class="string">'null'</span>])</span><br><span class="line"></span><br><span class="line">date_buy = dfoff[<span class="string">'Date'</span>].unique()</span><br><span class="line">date_buy = sorted(date_buy[date_buy != <span class="string">'null'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'优惠卷收到日期从'</span>,date_received[<span class="number">0</span>],<span class="string">'到'</span>,date_received[<span class="number">-1</span>])</span><br><span class="line">print(<span class="string">'消费日期从'</span>,date_buy[<span class="number">0</span>],<span class="string">'到'</span>,date_buy[<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>优惠卷收到日期从 20160101 到 20160615
+消费日期从 20160101 到 20160630
+</code></pre><p><strong>关于领劵日期的特征：</strong></p>
+<ul>
+<li><p>weekday : {null, 1, 2, 3, 4, 5, 6, 7}</p>
+</li>
+<li><p>weekday_type : {1, 0}（周六和周日为1，其他为0）</p>
+</li>
+<li><p>Weekday_1 : {1, 0, 0, 0, 0, 0, 0}</p>
+</li>
+<li><p>Weekday_2 : {0, 1, 0, 0, 0, 0, 0}</p>
+</li>
+<li><p>Weekday_3 : {0, 0, 1, 0, 0, 0, 0}</p>
+</li>
+<li><p>Weekday_4 : {0, 0, 0, 1, 0, 0, 0}</p>
+</li>
+<li><p>Weekday_5 : {0, 0, 0, 0, 1, 0, 0}</p>
+</li>
+<li><p>Weekday_6 : {0, 0, 0, 0, 0, 1, 0}</p>
+</li>
+<li><p>Weekday_7 : {0, 0, 0, 0, 0, 0, 1}</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getWeekday</span><span class="params">(row)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> row == <span class="string">'null'</span>:</span><br><span class="line">        <span class="keyword">return</span> row</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> date(int(row[<span class="number">0</span>:<span class="number">4</span>]), int(row[<span class="number">4</span>:<span class="number">6</span>]), int(row[<span class="number">6</span>:<span class="number">8</span>])).weekday() + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">dfoff[<span class="string">'weekday'</span>] = dfoff[<span class="string">'Date_received'</span>].astype(str).apply(getWeekday)</span><br><span class="line">dftest[<span class="string">'weekday'</span>] = dftest[<span class="string">'Date_received'</span>].astype(str).apply(getWeekday)</span><br><span class="line"></span><br><span class="line"><span class="comment"># weekday_type :  周六和周日为1，其他为0</span></span><br><span class="line">dfoff[<span class="string">'weekday_type'</span>] = dfoff[<span class="string">'weekday'</span>].apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x <span class="keyword">in</span> [<span class="number">6</span>,<span class="number">7</span>] <span class="keyword">else</span> <span class="number">0</span>)</span><br><span class="line">dftest[<span class="string">'weekday_type'</span>] = dftest[<span class="string">'weekday'</span>].apply(<span class="keyword">lambda</span> x: <span class="number">1</span> <span class="keyword">if</span> x <span class="keyword">in</span> [<span class="number">6</span>,<span class="number">7</span>] <span class="keyword">else</span> <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># change weekday to one-hot encoding </span></span><br><span class="line">weekdaycols = [<span class="string">'weekday_'</span> + str(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">8</span>)]</span><br><span class="line"><span class="comment">#print(weekdaycols)</span></span><br><span class="line"></span><br><span class="line">tmpdf = pd.get_dummies(dfoff[<span class="string">'weekday'</span>].replace(<span class="string">'null'</span>, np.nan))</span><br><span class="line">tmpdf.columns = weekdaycols</span><br><span class="line">dfoff[weekdaycols] = tmpdf</span><br><span class="line"></span><br><span class="line">tmpdf = pd.get_dummies(dftest[<span class="string">'weekday'</span>].replace(<span class="string">'null'</span>, np.nan))</span><br><span class="line">tmpdf.columns = weekdaycols</span><br><span class="line">dftest[weekdaycols] = tmpdf</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="所有特征："><a href="#所有特征：" class="headerlink" title="所有特征："></a>所有特征：</h3><ul>
+<li><p>discount_rate</p>
+</li>
+<li><p>discount_type</p>
+</li>
+<li><p>discount_man</p>
+</li>
+<li><p>discount_jian</p>
+</li>
+<li><p>distance</p>
+</li>
+<li><p>weekday</p>
+</li>
+<li><p>weekday_type</p>
+</li>
+<li><p>weekday_1</p>
+</li>
+<li><p>weekday_2</p>
+</li>
+<li><p>weekday_3</p>
+</li>
+<li><p>weekday_4</p>
+</li>
+<li><p>weekday_5</p>
+</li>
+<li><p>weekday_6</p>
+</li>
+<li><p>weekday_7</p>
+</li>
+</ul>
+<h2 id="标签标注"><a href="#标签标注" class="headerlink" title="标签标注"></a>标签标注</h2><p>三种情况：</p>
+<ul>
+<li><p>Date_received == ‘null’：表示没有领到优惠券，无需考虑，y = -1</p>
+</li>
+<li><p>(Date_received != ‘null’) &amp; (Date != ‘null’) &amp; (Date - Date_received &lt;= 15)：表示领取优惠券且在15天内使用，即正样本，y = 1</p>
+</li>
+<li><p>(Date_received != ‘null’) &amp; ((Date == ‘null’) | (Date - Date_received &gt; 15))：表示领取优惠券未在在15天内使用，即负样本，y = 0</p>
+</li>
+</ul>
+<p>定义标签备注函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">label</span><span class="params">(row)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">'Date_received'</span>] == <span class="string">'null'</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">'Date'</span>] != <span class="string">'null'</span>:</span><br><span class="line">        td = pd.to_datetime(row[<span class="string">'Date'</span>], format=<span class="string">'%Y%m%d'</span>) - pd.to_datetime(row[<span class="string">'Date_received'</span>], format=<span class="string">'%Y%m%d'</span>)</span><br><span class="line">        <span class="keyword">if</span> td &lt;= pd.Timedelta(<span class="number">15</span>, <span class="string">'D'</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">dfoff[<span class="string">'label'</span>] = dfoff.apply(label, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(dfoff[<span class="string">'label'</span>].value_counts())</span><br></pre></td></tr></table></figure>
+<pre><code> 0    988887
+-1    701602
+ 1     64395
+Name: label, dtype: int64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfoff.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="建立线性模型-SGDClassifier"><a href="#建立线性模型-SGDClassifier" class="headerlink" title="建立线性模型 SGDClassifier"></a>建立线性模型 SGDClassifier</h2><ul>
+<li><p>使用上面提取的14个特征。</p>
+</li>
+<li><p>训练集：20160101-20160515；验证集：20160516-20160615。</p>
+</li>
+<li><p>用线性模型 SGDClassifier</p>
+</li>
+</ul>
+<h3 id="划分训练集-验证集"><a href="#划分训练集-验证集" class="headerlink" title="划分训练集/验证集"></a>划分训练集/验证集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data split</span></span><br><span class="line">df = dfoff[dfoff[<span class="string">'label'</span>] != <span class="number">-1</span>].copy()</span><br><span class="line">train = df[(df[<span class="string">'Date_received'</span>] &lt; <span class="string">'20160516'</span>)].copy()</span><br><span class="line">valid = df[(df[<span class="string">'Date_received'</span>] &gt;= <span class="string">'20160516'</span>) &amp; (df[<span class="string">'Date_received'</span>] &lt;= <span class="string">'20160615'</span>)].copy()</span><br><span class="line">print(<span class="string">'Train Set: \n'</span>, train[<span class="string">'label'</span>].value_counts())</span><br><span class="line">print(<span class="string">'Valid Set: \n'</span>, valid[<span class="string">'label'</span>].value_counts())</span><br></pre></td></tr></table></figure>
+<pre><code>Train Set: 
+ 0    759172
+1     41524
+Name: label, dtype: int64
+Valid Set: 
+ 0    229715
+1     22871
+Name: label, dtype: int64
+</code></pre><h3 id="特征数量"><a href="#特征数量" class="headerlink" title="特征数量"></a>特征数量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># feature</span></span><br><span class="line">original_feature = [<span class="string">'discount_rate'</span>,<span class="string">'discount_type'</span>,<span class="string">'discount_man'</span>, <span class="string">'discount_jian'</span>,<span class="string">'distance'</span>, <span class="string">'weekday'</span>, <span class="string">'weekday_type'</span>] + weekdaycols</span><br><span class="line">print(<span class="string">'共有特征：'</span>,len(original_feature),<span class="string">'个'</span>)</span><br><span class="line">print(original_feature)</span><br></pre></td></tr></table></figure>
+<pre><code>共有特征： 14 个
+[&#39;discount_rate&#39;, &#39;discount_type&#39;, &#39;discount_man&#39;, &#39;discount_jian&#39;, &#39;distance&#39;, &#39;weekday&#39;, &#39;weekday_type&#39;, &#39;weekday_1&#39;, &#39;weekday_2&#39;, &#39;weekday_3&#39;, &#39;weekday_4&#39;, &#39;weekday_5&#39;, &#39;weekday_6&#39;, &#39;weekday_7&#39;]
+</code></pre><h3 id="建立模型"><a href="#建立模型" class="headerlink" title="建立模型"></a>建立模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_model</span><span class="params">(data, predictors)</span>:</span></span><br><span class="line">    </span><br><span class="line">    classifier = <span class="keyword">lambda</span>: SGDClassifier(</span><br><span class="line">        loss=<span class="string">'log'</span>,  <span class="comment"># loss function: logistic regression</span></span><br><span class="line">        penalty=<span class="string">'elasticnet'</span>, <span class="comment"># L1 &amp; L2</span></span><br><span class="line">        fit_intercept=<span class="literal">True</span>,  <span class="comment"># 是否存在截距，默认存在</span></span><br><span class="line">        max_iter=<span class="number">100</span>, </span><br><span class="line">        shuffle=<span class="literal">True</span>,  <span class="comment"># Whether or not the training data should be shuffled after each epoch</span></span><br><span class="line">        n_jobs=<span class="number">1</span>, <span class="comment"># The number of processors to use</span></span><br><span class="line">        class_weight=<span class="literal">None</span>) <span class="comment"># Weights associated with classes. If not given, all classes are supposed to have weight one.</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 管道机制使得参数集在新数据集（比如测试集）上的重复使用，管道机制实现了对全部步骤的流式化封装和管理。</span></span><br><span class="line">    model = Pipeline(steps=[</span><br><span class="line">        (<span class="string">'ss'</span>, StandardScaler()), <span class="comment"># transformer</span></span><br><span class="line">        (<span class="string">'en'</span>, classifier())  <span class="comment"># estimator</span></span><br><span class="line">    ])</span><br><span class="line"> </span><br><span class="line">    parameters = &#123;</span><br><span class="line">        <span class="string">'en__alpha'</span>: [ <span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>],</span><br><span class="line">        <span class="string">'en__l1_ratio'</span>: [ <span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>]</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># StratifiedKFold用法类似Kfold，但是他是分层采样，确保训练集，测试集中各类别样本的比例与原始数据集中相同。</span></span><br><span class="line">    folder = StratifiedKFold(n_splits=<span class="number">3</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Exhaustive search over specified parameter values for an estimator.</span></span><br><span class="line">    grid_search = GridSearchCV(</span><br><span class="line">        model, </span><br><span class="line">        parameters, </span><br><span class="line">        cv=folder, </span><br><span class="line">        n_jobs=<span class="number">-1</span>,  <span class="comment"># -1 means using all processors</span></span><br><span class="line">        verbose=<span class="number">1</span>)</span><br><span class="line">    grid_search = grid_search.fit(data[predictors], </span><br><span class="line">                                  data[<span class="string">'label'</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> grid_search</span><br></pre></td></tr></table></figure>
+<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predictors = original_feature</span><br><span class="line">model = check_model(train, predictors)</span><br></pre></td></tr></table></figure>
+<pre><code>Fitting 3 folds for each of 9 candidates, totalling 27 fits
+
+
+[Parallel(n_jobs=-1)]: Done  27 out of  27 | elapsed:  3.0min finished
+</code></pre><h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>对验证集中每个优惠券预测的结果计算 AUC，再对所有优惠券的 AUC 求平均。计算 AUC 的时候，如果 label 只有一类，就直接跳过，因为 AUC 无法计算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># valid predict</span></span><br><span class="line">y_valid_pred = model.predict_proba(valid[predictors])</span><br><span class="line">valid1 = valid.copy()</span><br><span class="line">valid1[<span class="string">'pred_prob'</span>] = y_valid_pred[:, <span class="number">1</span>]</span><br><span class="line">valid1.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>计算 AUC：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># avgAUC calculation</span></span><br><span class="line">vg = valid1.groupby([<span class="string">'Coupon_id'</span>])</span><br><span class="line">aucs = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> vg:</span><br><span class="line">    tmpdf = i[<span class="number">1</span>] </span><br><span class="line">    <span class="keyword">if</span> len(tmpdf[<span class="string">'label'</span>].unique()) != <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    fpr, tpr, thresholds = roc_curve(tmpdf[<span class="string">'label'</span>], tmpdf[<span class="string">'pred_prob'</span>], pos_label=<span class="number">1</span>)</span><br><span class="line">    aucs.append(auc(fpr, tpr))</span><br><span class="line">print(np.average(aucs))</span><br></pre></td></tr></table></figure>
+<pre><code>0.532344469452
+</code></pre><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test prediction for submission</span></span><br><span class="line">y_test_pred = model.predict_proba(dftest[predictors])</span><br><span class="line">dftest1 = dftest[[<span class="string">'User_id'</span>,<span class="string">'Coupon_id'</span>,<span class="string">'Date_received'</span>]].copy()</span><br><span class="line">dftest1[<span class="string">'Probability'</span>] = y_test_pred[:,<span class="number">1</span>]</span><br><span class="line">dftest1.to_csv(<span class="string">'submit1.csv'</span>, index=<span class="literal">False</span>, header=<span class="literal">False</span>)</span><br><span class="line">dftest1.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="保存模型-amp-导入模型"><a href="#保存模型-amp-导入模型" class="headerlink" title="保存模型 &amp; 导入模型"></a>保存模型 &amp; 导入模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(<span class="string">'1_model.pkl'</span>):</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'1_model.pkl'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        pickle.dump(model, f)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'1_model.pkl'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        model = pickle.load(f)</span><br></pre></td></tr></table></figure>
+<h3 id="改用决策数算法训练模型"><a href="#改用决策数算法训练模型" class="headerlink" title="改用决策数算法训练模型"></a>改用决策数算法训练模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_model</span><span class="params">(data, predictors)</span>:</span>    </span><br><span class="line">    classifier = DecisionTreeClassifier(random_state=<span class="number">1</span>)    </span><br><span class="line">    parameters = &#123;</span><br><span class="line">        <span class="string">'max_leaf_nodes'</span>: list(range(<span class="number">2</span>, <span class="number">100</span>)), </span><br><span class="line">        <span class="string">'min_samples_split'</span>: [<span class="number">8</span>, <span class="number">10</span>, <span class="number">15</span>]</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment"># StratifiedKFold用法类似Kfold，但是他是分层采样，确保训练集，测试集中各类别样本的比例与原始数据集中相同。</span></span><br><span class="line">    folder = StratifiedKFold(n_splits=<span class="number">3</span>, shuffle=<span class="literal">True</span>)    </span><br><span class="line">    <span class="comment"># Exhaustive search over specified parameter values for an estimator.</span></span><br><span class="line">    grid_search = GridSearchCV(</span><br><span class="line">        classifier, </span><br><span class="line">        parameters, </span><br><span class="line">        cv=folder, </span><br><span class="line">        n_jobs=<span class="number">-1</span>,  <span class="comment"># -1 means using all processors</span></span><br><span class="line">        verbose=<span class="number">1</span>)</span><br><span class="line">    grid_search = grid_search.fit(data[predictors].values,</span><br><span class="line">    data[<span class="string">'label'</span>].values)<span class="comment">#parallel报错加上了.values</span></span><br><span class="line">    <span class="keyword">return</span> grid_search</span><br><span class="line">    </span><br><span class="line">predictors = original_feature</span><br><span class="line">model = check_model(train, predictors)</span><br><span class="line"></span><br><span class="line"><span class="comment"># valid predict</span></span><br><span class="line">y_valid_pred = model.predict_proba(valid[predictors])</span><br><span class="line">valid1 = valid.copy()</span><br><span class="line">valid1[<span class="string">'pred_prob'</span>] = y_valid_pred[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># avgAUC calculation</span></span><br><span class="line">vg = valid1.groupby([<span class="string">'Coupon_id'</span>])</span><br><span class="line">aucs = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> vg:</span><br><span class="line">    tmpdf = i[<span class="number">1</span>] </span><br><span class="line">    <span class="keyword">if</span> len(tmpdf[<span class="string">'label'</span>].unique()) != <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    fpr, tpr, thresholds = roc_curve(tmpdf[<span class="string">'label'</span>], tmpdf[<span class="string">'pred_prob'</span>], pos_label=<span class="number">1</span>)</span><br><span class="line">    aucs.append(auc(fpr, tpr))</span><br><span class="line">print(np.average(aucs))</span><br><span class="line"></span><br><span class="line"><span class="comment"># test prediction for submission</span></span><br><span class="line">y_test_pred = model.predict_proba(dftest[predictors])</span><br><span class="line">dftest1 = dftest[[<span class="string">'User_id'</span>,<span class="string">'Coupon_id'</span>,<span class="string">'Date_received'</span>]].copy()</span><br><span class="line">dftest1[<span class="string">'Probability'</span>] = y_test_pred[:,<span class="number">1</span>]</span><br><span class="line">dftest1.to_csv(<span class="string">'submit1-dt.csv'</span>, index=<span class="literal">False</span>, header=<span class="literal">False</span>)</span><br><span class="line">dftest1.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="优化模型…"><a href="#优化模型…" class="headerlink" title="优化模型…"></a>优化模型…</h2><ul>
+<li><p><strong>特征工程</strong></p>
+</li>
+<li><p><strong>机器学习算法</strong></p>
+</li>
+<li><p><strong>模型集成</strong></p>
+</li>
+</ul>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><p><a href="https://github.com/wepe/O2O-Coupon-Usage-Forecast" target="_blank" rel="noopener">比赛第一名代码与解析</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/特征工程/" rel="tag"># 特征工程</a>
+          
+            <a href="/tags/交叉验证/" rel="tag"># 交叉验证</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/08/朴素贝叶斯算法/" rel="next" title="朴素贝叶斯算法">
+                <i class="fa fa-chevron-left"></i> 朴素贝叶斯算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/26/Logistic回归/" rel="prev" title="Logistic回归">
+                Logistic回归 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/psb.jpg" alt="Gavin">
+            
+              <p class="site-author-name" itemprop="name">Gavin</p>
+              <p class="site-description motion-element" itemprop="description">AI/机器学习/数据挖掘/python</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:liguanchn@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入相关库"><span class="nav-number">1.</span> <span class="nav-text">导入相关库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入数据"><span class="nav-number">2.</span> <span class="nav-text">导入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单统计"><span class="nav-number">2.1.</span> <span class="nav-text">简单统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征提取"><span class="nav-number">3.</span> <span class="nav-text">特征提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打折率-Discount-rate"><span class="nav-number">3.1.</span> <span class="nav-text">打折率 Discount_rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#距离-Distance"><span class="nav-number">3.2.</span> <span class="nav-text">距离 Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#领劵日期-Date-received"><span class="nav-number">3.3.</span> <span class="nav-text">领劵日期 Date_received</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所有特征："><span class="nav-number">3.4.</span> <span class="nav-text">所有特征：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签标注"><span class="nav-number">4.</span> <span class="nav-text">标签标注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立线性模型-SGDClassifier"><span class="nav-number">5.</span> <span class="nav-text">建立线性模型 SGDClassifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#划分训练集-验证集"><span class="nav-number">5.1.</span> <span class="nav-text">划分训练集/验证集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征数量"><span class="nav-number">5.2.</span> <span class="nav-text">特征数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立模型"><span class="nav-number">5.3.</span> <span class="nav-text">建立模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#训练"><span class="nav-number">5.4.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">5.5.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.6.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存模型-amp-导入模型"><span class="nav-number">5.7.</span> <span class="nav-text">保存模型 &amp; 导入模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改用决策数算法训练模型"><span class="nav-number">5.8.</span> <span class="nav-text">改用决策数算法训练模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化模型…"><span class="nav-number">6.</span> <span class="nav-text">优化模型…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考代码"><span class="nav-number">7.</span> <span class="nav-text">参考代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<!--  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
